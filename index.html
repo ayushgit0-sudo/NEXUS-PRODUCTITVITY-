@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXUS | Personal Command Center</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-box">N</div>
+
+                <div>
+                    <h2>NEXUS</h2>
+                    <span>COMMAND CENTER</span>
+                </div>
+
+            </div>
+
+
+            <nav>
+
+                <button
+                    class="nav-item active"
+                    onclick="showSection('dashboard', this)">
+                    ⌂ Dashboard
+                </button>
+
+                <button
+                    class="nav-item"
+                    onclick="showSection('tasks', this)">
+                    ✓ Tasks
+                </button>
+
+                <button
+                    class="nav-item"
+                    onclick="showSection('focus', this)">
+                    ◷ Focus
+                </button>
+
+                <button
+                    class="nav-item"
+                    onclick="showSection('performance', this)">
+                    ⚡ Performance
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <span>SYSTEM</span>
+
+                <p>● ONLINE</p>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- HEADER -->
+            <header class="topbar">
+
+                <div>
+
+                    <p class="small-text">
+                        WELCOME BACK
+                    </p>
+
+                    <h1>
+                        Good evening, <span>Ayush.</span>
+                    </h1>
+
+                </div>
+
+                <div
+                    class="date"
+                    id="date">
+                </div>
+
+            </header>
+
+
+            <!-- STATS -->
+            <section
+                class="stats"
+                id="dashboard">
+
+                <div class="stat-card">
+
+                    <span>PRODUCTIVITY</span>
+
+                    <strong id="productivity">
+                        0%
+                    </strong>
+
+                    <small>
+                        Today's performance
+                    </small>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>TASKS</span>
+
+                    <strong id="taskCount">
+                        0
+                    </strong>
+
+                    <small>
+                        Tasks completed
+                    </small>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>FOCUS TIME</span>
+
+                    <strong id="focusDisplay">
+                        25:00
+                    </strong>
+
+                    <small>
+                        Current session
+                    </small>
+
+                </div>
+
+            </section>
+
+
+            <!-- CONTENT GRID -->
+            <section class="grid">
+
+
+                <!-- TASKS -->
+                <div
+                    class="card tasks-card"
+                    id="tasks">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="label">
+                                MISSION CONTROL
+                            </span>
+
+                            <h2>
+                                Today's Tasks
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="task-input">
+
+                        <input
+                            type="text"
+                            id="taskInput"
+                            placeholder="Add a new mission...">
+
+                        <button
+                            onclick="addTask()">
+                            +
+                        </button>
+
+                    </div>
+
+
+                    <div id="taskList"></div>
+
+                </div>
+
+
+                <!-- ENERGY -->
+                <div class="card energy-card">
+
+                    <span class="label">
+                        SYSTEM STATUS
+                    </span>
+
+                    <h2>
+                        Your Energy
+                    </h2>
+
+
+                    <div class="energy-value">
+
+                        <strong id="energyValue">
+                            70
+                        </strong>
+
+                        <span>%</span>
+
+                    </div>
+
+
+                    <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="70"
+                        id="energySlider">
+
+
+                    <div class="energy-labels">
+
+                        <span>LOW</span>
+
+                        <span>HIGH</span>
+
+                    </div>
+
+
+                    <p id="energyMessage">
+                        You're ready for deep work.
+                    </p>
+
+                </div>
+
+
+                <!-- FOCUS TIMER -->
+                <div
+                    class="card timer-card"
+                    id="focus">
+
+                    <span class="label">
+                        FOCUS ENGINE
+                    </span>
+
+                    <h2>
+                        Deep Work Session
+                    </h2>
+
+
+                    <div
+                        class="timer"
+                        id="timer">
+                        25:00
+                    </div>
+
+
+                    <div class="timer-buttons">
+
+                        <button onclick="startTimer()">
+                            START
+                        </button>
+
+                        <button onclick="pauseTimer()">
+                            PAUSE
+                        </button>
+
+                        <button onclick="resetTimer()">
+                            RESET
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NOTES -->
+                <div class="card notes-card">
+
+                    <span class="label">
+                        QUICK MEMORY
+                    </span>
+
+                    <h2>
+                        Notes
+                    </h2>
+
+
+                    <textarea
+                        id="notes"
+                        placeholder="Write something important..."></textarea>
+
+
+                    <button
+                        class="save-btn"
+                        onclick="saveNotes()">
+
+                        SAVE NOTE
+
+                    </button>
+
+
+                    <p id="savedMessage"></p>
+
+                </div>
+
+
+                <!-- PERFORMANCE -->
+                <div
+                    class="card performance-card"
+                    id="performance">
+
+                    <span class="label">
+                        PERFORMANCE ANALYSIS
+                    </span>
+
+                    <h2>
+                        Your Progress
+                    </h2>
+
+
+                    <div class="progress-container">
+
+                        <div class="progress-info">
+
+                            <span>
+                                Productivity
+                            </span>
+
+                            <strong id="performancePercentage">
+                                0%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="progress-bar">
+
+                            <div
+                                id="progressBar"
+                                class="progress-fill">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="performance-stats">
+
+                        <div>
+
+                            <strong id="completedTasks">
+                                0
+                            </strong>
+
+                            <span>
+                                Completed
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong id="totalTasks">
+                                0
+                            </strong>
+
+                            <span>
+                                Total Tasks
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <footer>
+
+                NEXUS v1.0 — Built with HTML • CSS • JavaScript
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

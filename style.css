@@ -1,0 +1,740 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+    background: #08090d;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================
+   APP
+========================= */
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    width: 250px;
+    background: #0d0f15;
+    border-right: 1px solid #20232d;
+
+    padding: 28px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 50px;
+}
+
+
+.logo-box {
+    width: 42px;
+    height: 42px;
+
+    background: #7c5cff;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+.logo h2 {
+    font-size: 18px;
+}
+
+
+.logo span {
+    font-size: 8px;
+
+    color: #777b88;
+
+    letter-spacing: 2px;
+}
+
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.nav-item {
+    width: 100%;
+
+    background: transparent;
+
+    border: none;
+
+    color: #858996;
+
+    text-align: left;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    transition: 0.2s;
+}
+
+
+.nav-item:hover {
+    background: #171923;
+    color: white;
+}
+
+
+.nav-item.active {
+    background: #7c5cff;
+    color: white;
+}
+
+
+/* SIDEBAR BOTTOM */
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    color: #555966;
+
+    font-size: 11px;
+}
+
+
+.sidebar-bottom p {
+    color: #58d68d;
+
+    margin-top: 8px;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+    margin-left: 250px;
+
+    flex: 1;
+
+    padding: 35px;
+
+    max-width: 1500px;
+}
+
+
+/* TOP BAR */
+
+.topbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+
+.small-text,
+.label {
+    color: #777c8d;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+h1 {
+    font-size: 32px;
+
+    margin-top: 7px;
+}
+
+
+h1 span {
+    color: #8c72ff;
+}
+
+
+.date {
+    color: #8c91a0;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+.stat-card {
+    background: #101219;
+
+    border: 1px solid #20232d;
+
+    padding: 22px;
+
+    border-radius: 15px;
+}
+
+
+.stat-card span {
+    color: #777c8d;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.stat-card strong {
+    display: block;
+
+    font-size: 30px;
+
+    margin: 12px 0 5px;
+}
+
+
+.stat-card small {
+    color: #646876;
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 20px;
+}
+
+
+.card {
+    background: #101219;
+
+    border: 1px solid #20232d;
+
+    border-radius: 15px;
+
+    padding: 25px;
+}
+
+
+.card h2 {
+    margin-top: 8px;
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   TASKS
+========================= */
+
+.tasks-card {
+    min-height: 390px;
+}
+
+
+.task-input {
+    display: flex;
+
+    margin-top: 25px;
+
+    gap: 8px;
+}
+
+
+.task-input input {
+    flex: 1;
+
+    background: #171923;
+
+    border: 1px solid #282c38;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 9px;
+
+    outline: none;
+}
+
+
+.task-input input:focus {
+    border-color: #7c5cff;
+}
+
+
+.task-input button {
+    width: 48px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #7c5cff;
+
+    color: white;
+
+    font-size: 24px;
+}
+
+
+.task {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #171923;
+
+    padding: 13px;
+
+    border-radius: 9px;
+
+    margin-top: 10px;
+}
+
+
+.task-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.task-left input {
+    width: 17px;
+    height: 17px;
+}
+
+
+.task.completed span {
+    text-decoration: line-through;
+
+    color: #646876;
+}
+
+
+.delete-task {
+    background: transparent;
+
+    border: none;
+
+    color: #777c8d;
+
+    font-size: 20px;
+}
+
+
+.delete-task:hover {
+    color: #ff5c7c;
+}
+
+
+/* =========================
+   ENERGY
+========================= */
+
+.energy-card {
+    min-height: 250px;
+}
+
+
+.energy-value {
+    margin: 30px 0 20px;
+}
+
+
+.energy-value strong {
+    font-size: 55px;
+}
+
+
+.energy-value span {
+    color: #777c8d;
+}
+
+
+#energySlider {
+    width: 100%;
+}
+
+
+.energy-labels {
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #666b78;
+
+    font-size: 10px;
+
+    margin-top: 7px;
+}
+
+
+#energyMessage {
+    color: #9297a5;
+
+    margin-top: 22px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   TIMER
+========================= */
+
+.timer-card {
+    text-align: center;
+}
+
+
+.timer {
+    font-size: 65px;
+
+    font-weight: bold;
+
+    margin: 30px 0;
+
+    letter-spacing: 3px;
+}
+
+
+.timer-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+}
+
+
+.timer-buttons button {
+    background: #171923;
+
+    border: 1px solid #292d39;
+
+    color: white;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+}
+
+
+.timer-buttons button:hover {
+    background: #7c5cff;
+}
+
+
+/* =========================
+   NOTES
+========================= */
+
+.notes-card textarea {
+    width: 100%;
+
+    height: 130px;
+
+    resize: none;
+
+    margin-top: 22px;
+
+    background: #171923;
+
+    border: 1px solid #282c38;
+
+    border-radius: 9px;
+
+    color: white;
+
+    padding: 14px;
+
+    outline: none;
+}
+
+
+.notes-card textarea:focus {
+    border-color: #7c5cff;
+}
+
+
+.save-btn {
+    margin-top: 10px;
+
+    background: #7c5cff;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 17px;
+
+    border-radius: 8px;
+}
+
+
+#savedMessage {
+    color: #58d68d;
+
+    font-size: 12px;
+
+    margin-top: 10px;
+}
+
+
+/* =========================
+   PERFORMANCE
+========================= */
+
+.performance-card {
+    grid-column: span 2;
+}
+
+
+.progress-container {
+    margin-top: 25px;
+}
+
+
+.progress-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    color: #9297a5;
+}
+
+
+.progress-info strong {
+    color: white;
+}
+
+
+.progress-bar {
+    width: 100%;
+
+    height: 12px;
+
+    background: #1b1e27;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.progress-fill {
+    height: 100%;
+
+    width: 0%;
+
+    background: #7c5cff;
+
+    border-radius: 20px;
+
+    transition: width 0.4s;
+}
+
+
+.performance-stats {
+    display: flex;
+
+    gap: 60px;
+
+    margin-top: 25px;
+}
+
+
+.performance-stats div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.performance-stats strong {
+    font-size: 28px;
+}
+
+
+.performance-stats span {
+    color: #646876;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    color: #4f5360;
+
+    font-size: 11px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 850px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        border-right: none;
+
+        border-bottom: 1px solid #20232d;
+    }
+
+
+    .app {
+        flex-direction: column;
+    }
+
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+
+    nav {
+        flex-direction: row;
+
+        overflow-x: auto;
+    }
+
+
+    .nav-item {
+        white-space: nowrap;
+    }
+
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+
+    .main {
+        margin-left: 0;
+
+        padding: 20px;
+    }
+
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .performance-card {
+        grid-column: span 1;
+    }
+
+
+    .topbar {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    h1 {
+        font-size: 25px;
+    }
+}
